@@ -24,7 +24,7 @@ data = {'username':'',
 2.上传至云服务器
 
 ```
-nohup python3 -u onhook.py
+nohup python3 -u onHook.py
 ```
 
 后台运行即可
