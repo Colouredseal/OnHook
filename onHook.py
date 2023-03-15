@@ -4,7 +4,7 @@ import urllib3
 import time
 import re
 from lxml import etree
-#不打印报错
+#不打印warning
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning) 
 #登录时需要POST的数据
 data = {'username':'', 
@@ -35,7 +35,7 @@ while(1):
                 print("Connection disconnected \n Reconnecting")
                 session = login()
                 time.sleep(300) #防止出现验证码 
-        else:print("login cotinue")
+        else:print("login continue")
         time.sleep(45)  
 
 
