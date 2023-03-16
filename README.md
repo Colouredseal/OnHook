@@ -13,7 +13,7 @@
 ## 运行
 
 1.在onhook.py  data中填写账号密码
-
+填用户名 使用邮箱或者uid登录需要自行更改loginfield 
 ```
 data = {'username':'', 
         'password':'', 
