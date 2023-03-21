@@ -30,8 +30,8 @@ session=login()
 while True:
         resp = session.get(url)
         html = etree.HTML(resp.content)     
-        success_login = html.xpath('//div[@id="messagetext"]/p/text()')  
-        if success_login and success_login[0][0:2]=="抱歉": 
+        messagetext = html.xpath('//div[@id="messagetext"]/p/text()')  
+        if messagetext and messagetext[0][0:2]=="抱歉": 
                 print("Connection disconnected at "+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
                 print("Reconnecting...")
                 session = login()
