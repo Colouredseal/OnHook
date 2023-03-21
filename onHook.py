@@ -27,7 +27,7 @@ def login():
                 print("login_success at "+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         return session
 session=login()
-while(1):
+while True:
         resp = session.get(url)
         html = etree.HTML(resp.content)     
         success_login = html.xpath('//div[@id="messagetext"]/p/text()')  
