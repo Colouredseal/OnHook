@@ -24,7 +24,7 @@ def login():
         pattern=r"欢迎您回来"
         m = re.search(pattern, resp.content.decode('utf-8'))
         if m.start()>0:
-                print("login_success")
+                print("login_success at "+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         return session
 session=login()
 while(1):
@@ -32,10 +32,11 @@ while(1):
         html = etree.HTML(resp.content)     
         success_login = html.xpath('//div[@id="messagetext"]/p/text()')  
         if success_login and success_login[0][0:2]=="抱歉": 
-                print("Connection disconnected \n Reconnecting")
+                print("Connection disconnected at "+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+                print("Reconnecting...")
                 session = login()
                 time.sleep(300) #防止出现验证码 
-        else:print("login continue")
+        else:print("login continue at "+time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         time.sleep(45)  
 
 
