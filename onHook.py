@@ -8,8 +8,8 @@ from lxml import etree
 # 不打印warning
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # 登录时需要POST的数据
-data = {'username':'',
-        'password':'',
+data = {'username':'rikka',
+        'password':'7758521asd',
         'loginfield':'username',
         'refer':'https://bbs.uestc.edu.cn/'}
 # 设置请求头
@@ -22,25 +22,35 @@ url = 'http://bbs.uestc.edu.cn/forum.php?mod=forumdisplay&fid=174'
 
 def login():
     session = requests.Session()
-    resp = session.post(login_url, data, verify=False,headers=headers)
-    print(resp.content.decode('utf-8'))
-    pattern = r"欢迎您回来"
-    m = re.search(pattern, resp.content.decode('utf-8'))
-    if m.start() > 0:
-        print("login_success at " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-    return session
+    try:
+        resp = session.post(login_url, data, verify=False,headers=headers)
+    except BaseException as e:
+        print(e)
+        print("login exception " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        return session,False
+    else:
+        print(resp.content.decode('utf-8'))
+        pattern = r"欢迎您回来"
+        m = re.search(pattern, resp.content.decode('utf-8'))
+        if m.start() > 0:
+            print("login_success at " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        return session,True
 
+success=False
+while not success:
+    session, success = login()
 
-session = login()
 while True:
     try:
         resp = session.get(url)
     except BaseException as e:
+        success = False
         print(e)
         print("Connection disconnected at " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         print("Reconnecting...")
-        time.sleep(300)
-        session = login()
+        while not success:
+            time.sleep(300)
+            session, success = login()
         
     else:
         
