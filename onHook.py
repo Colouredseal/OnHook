@@ -39,8 +39,9 @@ while True:
         print(e)
         print("Connection disconnected at " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         print("Reconnecting...")
+        time.sleep(300)
         session = login()
-        time.sleep(45)
+        
     else:
         
         html = etree.HTML(resp.content)
