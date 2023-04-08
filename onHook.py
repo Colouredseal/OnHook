@@ -8,8 +8,8 @@ from lxml import etree
 # 不打印warning
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # 登录时需要POST的数据
-data = {'username':'rikka',
-        'password':'7758521asd',
+data = {'username':'',
+        'password':'',
         'loginfield':'username',
         'refer':'https://bbs.uestc.edu.cn/'}
 # 设置请求头
