@@ -21,11 +21,12 @@ url = 'http://bbs.uestc.edu.cn/forum.php?mod=forumdisplay&fid=174'
 
 
 def login():
-    session = requests.Session()
     try:
+        session = requests.Session()
         resp = session.post(login_url, data, verify=False,headers=headers)
     except BaseException as e:
         print(e)
+        session.close()
         print("login exception " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         return session,False
     else:
@@ -46,6 +47,7 @@ while True:
     except BaseException as e:
         success = False
         print(e)
+        session.close()
         print("Connection disconnected at " + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         print("Reconnecting...")
         while not success:
