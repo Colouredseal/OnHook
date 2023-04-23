@@ -15,7 +15,7 @@
 - urllib3
 
 ## 运行
-
+###linux服务器端
 1.在onhook.py  data中填写账号密码
 填用户名 使用邮箱或者uid登录需要自行更改loginfield 
 ```
@@ -34,3 +34,5 @@ nohup python3 -u onHook.py
 后台运行即可 输出信息默认保存到nohup.out文件中
 运行成功后在同目录下nohup.out下查看是否成功登录以及运行状态
 ![image](https://user-images.githubusercontent.com/52741194/233853565-e5ac676a-0be6-4b5f-8de0-fd0fbf278410.png)
+###windows端
+输入账号密码后直接运行即可
