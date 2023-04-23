@@ -33,4 +33,4 @@ nohup python3 -u onHook.py
 
 后台运行即可 输出信息默认保存到nohup.out文件中
 运行成功后在同目录下nohup.out下查看是否成功登录以及运行状态
-![U@H$F@@0@$F3XZKQ_C7 BRH](https://user-images.githubusercontent.com/52741194/225537953-56aa204a-3bbf-4c21-9dfc-9eb5906a59da.png)
+![image](https://user-images.githubusercontent.com/52741194/233853565-e5ac676a-0be6-4b5f-8de0-fd0fbf278410.png)
